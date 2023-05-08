@@ -1,13 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.StructF" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.StructF" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/AllWhite</item>
-        <item name="colorPrimaryVariant">@color/Blue</item>
-        <item name="colorOnPrimary">@color/Body</item>
+        <item name="colorPrimary">@color/LightBlue</item>
+        <item name="colorPrimaryVariant">@color/VLBlue</item>
+        <item name="colorOnPrimary">@color/AllWhite</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/Blue</item>
-        <item name="colorSecondaryVariant">@color/AllWhite</item>
+    i    <item name="colorSecondaryVariant">@color/AllWhite</item>
         <item name="colorOnSecondary">@color/Body</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>

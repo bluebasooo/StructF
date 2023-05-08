@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LightBlue"
+    android:background="@color/VLBlue"
     tools:context=".MainFragment">
 
     <androidx.constraintlayout.widget.Guideline
@@ -24,7 +24,8 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/t_rec2"
+        android:background="@drawable/roundstyle_for_backshapes_hard"
+        android:backgroundTint="@color/AllWhite"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="1.0"
@@ -35,7 +36,8 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/statusbar"
+        android:background="@drawable/roundstyle_for_backshapes_light"
+        android:backgroundTint="@color/Blue"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/mf_guideline_end"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
@@ -44,7 +46,8 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/rot_rec"
+        android:background="@drawable/roundstyle_for_backshapes_light"
+        android:backgroundTint="@color/AllWhite"
         app:layout_constraintBottom_toTopOf="@+id/mf_guideline_bottom"
         app:layout_constraintEnd_toStartOf="@+id/mf_guideline_end"
         app:layout_constraintStart_toStartOf="@+id/mf_guideline_start"

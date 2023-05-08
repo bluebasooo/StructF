@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/home_icon"
+        android:id="@+id/bHome"
+        android:title="Home" />
+
+    <item
+
+        android:icon="@drawable/stack_icon"
+        android:id="@+id/bStack"
+        android:title="Tag" />
+
+    <item
+        android:id="@+id/bSort"
+        android:title="Sort" />
+
+
+</menu>

@@ -2,6 +2,5 @@ package ru.mirea.structf
 
 import androidx.fragment.app.Fragment
 
-class MainFragment : Fragment(R.layout.fragment_main) {
-
+class SortFragment : Fragment(R.layout.fragment_sort) {
 }
