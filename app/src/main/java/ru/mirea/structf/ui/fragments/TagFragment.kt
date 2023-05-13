@@ -1,14 +1,18 @@
-package ru.mirea.structf
+package ru.mirea.structf.ui.fragments
 
 import android.os.Bundle
+import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.mirea.structf.databinding.FragmentTagBinding
+import ru.mirea.structf.domain.Explorer
 import ru.mirea.structf.dto.DocDto
 import ru.mirea.structf.dto.TagDto
+import ru.mirea.structf.ui.adapters.FileAdapter
+import ru.mirea.structf.ui.adapters.TagAdapter
 
 class TagFragment : Fragment() {
 
@@ -27,21 +31,6 @@ class TagFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val files = mutableListOf(
-            DocDto("init.pdf"),
-            DocDto("to.doc"),
-            DocDto("DAMN.exe") ,
-            DocDto("init.pdf"),
-            DocDto("to.doc"),
-            DocDto("DAMN.exe"),
-            DocDto("init.pdf"),
-            DocDto("to.doc"),
-            DocDto("DAMN.exe"),
-            DocDto("init.pdf"),
-            DocDto("to.doc"),
-            DocDto("DAMN.exe")
-        )
-
         val tags = mutableListOf(
             TagDto("UNIV", "red"),
             TagDto("HZ", "blue"),
@@ -52,9 +41,16 @@ class TagFragment : Fragment() {
             TagDto("HZ", "blue")
         )
 
-        tagBinding.file.apply {
+        val exp = Explorer(Environment.getExternalStorageDirectory().toString())
+
+        tagBinding.rcFile.apply {
             layoutManager = LinearLayoutManager(activity)
-            adapter = FileAdapter(files)
+            adapter = FileAdapter(exp)
+        }
+
+        tagBinding.fButton.setOnClickListener {
+            exp.up()
+            tagBinding.rcFile.adapter!!.notifyDataSetChanged()
         }
 
         tagBinding.tags.apply {

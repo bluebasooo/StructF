@@ -1,10 +1,11 @@
-package ru.mirea.structf
+package ru.mirea.structf.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import ru.mirea.structf.R
 import ru.mirea.structf.dto.TagDto
 
 class TagAdapter(

@@ -4,5 +4,9 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/AllWhite</item>
         <item name="android:textStyle">bold</item>
-    </style>l
+    </style>
+
+    <style name="round_button" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

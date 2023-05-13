@@ -5,6 +5,5 @@ data class DocState(
     val folder: String,
     val tag: String = "",
     val isTracked: Boolean = false,
-    val sortType: SortTypes = SortTypes.NAME
 
 )

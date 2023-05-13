@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/miHome"
+        android:id="@id/mainFragment"
         android:title="Home"
         android:icon="@drawable/home_icon" />
 
     <item
-        android:id="@+id/miStackButton"
+        android:id="@id/tagFragment"
         android:title="Stack"
         android:icon="@drawable/stack_icon" />
 </menu>

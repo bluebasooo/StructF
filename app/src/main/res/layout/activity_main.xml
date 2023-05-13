@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/VLBlue"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -34,16 +34,20 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.09" />
 
-        <FrameLayout
-            android:id="@+id/fragmentContainer"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="@id/top_of_bottom_bar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
+            app:layout_constraintTop_toBottomOf="@id/materialToolbar"
 
-        </FrameLayout>
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/struct_nav_graph"
+
+            />
 
 
 
@@ -68,7 +72,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:itemTextColor="@color/AllWhite"
-            app:layout_constraintTop_toBottomOf="@+id/fragmentContainer"
+            app:layout_constraintTop_toBottomOf="@+id/host_fragment"
             app:layout_constraintVertical_bias="0.529"
             app:itemIconTint="@color/AllWhite"
             app:menu="@menu/bottom_nav_menu" />

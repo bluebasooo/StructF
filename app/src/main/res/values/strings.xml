@@ -5,4 +5,19 @@
     <string name="home_screen">Home</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+
+    <!--    Auth Screen-->
+    <string name="enter_password">enter password</string>
+    <string name="password">password</string>
+    <string name="enter_email">enter email</string>
+    <string name="email">email</string>
+    <string name="log_in">Log in</string>
+
+    <!--    Tag Fragment-->
+    <string name="go_up">Go up</string>
+
+    <!--    Inner Screen-->
+    <string name="clear">clear</string>
+    <string name="in">in</string>
+
 </resources>

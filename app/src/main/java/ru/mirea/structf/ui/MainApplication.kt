@@ -1,4 +1,4 @@
-package ru.mirea.structf
+package ru.mirea.structf.ui
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
