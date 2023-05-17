@@ -6,11 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.mirea.structf.R
-import ru.mirea.structf.domain.Explorer
-import ru.mirea.structf.dto.DocDto
+import ru.mirea.structf.data.model.Doc
 
 class FileAdapter(
-    private var exp: Explorer
+    private var docs: List<Doc>
 ) : RecyclerView.Adapter<FileAdapter.FileViewHolder>() {
 
 
@@ -22,18 +21,19 @@ class FileAdapter(
     }
 
     override fun onBindViewHolder(holder: FileViewHolder, position: Int) {
-        val folder = exp.getFilesFromCurrentFolder()
+        val folder = docs
         holder.itemView.apply {
-            findViewById<TextView>(R.id.tvTitle).text = folder[position]
-            setOnClickListener {
-                exp.down(folder[position])
-                notifyDataSetChanged()
-            }
+                findViewById<TextView>(R.id.tvTitle).text = folder[position].name
         }
+
+    }
+
+    fun setDocs(docs: List<Doc>) {
+        this.docs = docs
     }
 
     override fun getItemCount(): Int {
-        return exp.getFilesFromCurrentFolder().size
+        return docs.size
     }
 
     inner class FileViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)

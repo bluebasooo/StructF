@@ -1,15 +1,20 @@
 package ru.mirea.structf.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import dagger.hilt.android.AndroidEntryPoint
 import ru.mirea.structf.R
 import ru.mirea.structf.databinding.ActivityMainBinding
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    private val constants = getSharedPreferences("properties", Context.MODE_PRIVATE)
 
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
@@ -38,4 +43,6 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 }

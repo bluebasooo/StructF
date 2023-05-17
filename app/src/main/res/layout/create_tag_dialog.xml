@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/AllWhite" >
+
+    <View
+        android:id="@+id/immmmzz"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.7"
+        app:layout_constraintDimensionRatio="0.5"
+        android:background="@drawable/round_style_for_background_hard"
+        android:backgroundTint="@color/LightBlue"
+        app:layout_constraintBottom_toTopOf="@id/setTagName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/setTagName"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/Body"
+        android:hint="Enter name tag"
+        android:textColorHint="@color/VLBlue"
+        android:paddingStart="20dp"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintDimensionRatio="4"
+        android:background="@drawable/round_style_for_background_hard"
+        app:layout_constraintBottom_toTopOf="@+id/create_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/immmmzz" />
+
+    <Button
+        android:id="@+id/create_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Save"
+        android:backgroundTint="@color/LightBlue"
+        android:background="@drawable/round_style_for_background_hard"
+        app:layout_constraintDimensionRatio="2"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setTagName" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

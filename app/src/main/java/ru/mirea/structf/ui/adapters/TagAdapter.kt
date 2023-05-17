@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.mirea.structf.R
-import ru.mirea.structf.dto.TagDto
+import ru.mirea.structf.data.model.Tag
 
 class TagAdapter(
-    private val tags: List<TagDto>
+    private val tags: List<Tag>
 ) : RecyclerView.Adapter<TagAdapter.TagViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TagViewHolder {

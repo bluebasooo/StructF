@@ -7,24 +7,47 @@
     android:background="@color/VLBlue"
     tools:context=".ui.fragments.TagFragment">
 
-
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/tags"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/round_style_for_background_hard"
-        android:backgroundTint="@color/AllWhite"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/file"
+        android:background="@drawable/round_style_for_background_hard"
+        android:backgroundTint="@color/AllWhite"
         app:layout_constraintHeight_percent="0.94"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.5">
 
-    </androidx.recyclerview.widget.RecyclerView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_tags"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="5dp"
+        app:layout_constraintHeight_percent="0.9"
+        app:layout_constraintBottom_toTopOf="@id/t_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/t_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/LightBlue"
+        android:text="@string/go_up"
+        android:textColor="@color/AllWhite"
+        android:background="@drawable/round_style_for_plus_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rc_tags"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/file"
@@ -33,6 +56,7 @@
         android:background="@drawable/round_style_for_background_hard"
         android:backgroundTint="@color/AllWhite"
         android:paddingTop="10dp"
+        android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.94"
