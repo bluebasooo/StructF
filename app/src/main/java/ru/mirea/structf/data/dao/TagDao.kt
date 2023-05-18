@@ -16,7 +16,7 @@ interface TagDao {
     @Delete
     suspend fun deleteTag(tag: Tag)
 
-    @Query("SELECT * FROM tag_table ORDER BY tag ASC")
+    @Query("SELECT * FROM tag_table ORDER BY name ASC")
     fun getTagsOrderedByName(): LiveData<List<Tag>>
 
     @Query("SELECT * FROM tag_table WHERE name = :name")
