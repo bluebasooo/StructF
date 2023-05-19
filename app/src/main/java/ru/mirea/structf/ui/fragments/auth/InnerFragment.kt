@@ -1,4 +1,4 @@
-package ru.mirea.structf.ui.fragments
+package ru.mirea.structf.ui.fragments.auth
 
 import androidx.fragment.app.Fragment
 import ru.mirea.structf.R

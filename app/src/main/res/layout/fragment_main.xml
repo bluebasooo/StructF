@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,102 +8,91 @@
     android:background="@color/VLBlue"
     tools:context=".ui.fragments.MainFragment">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/mf_guideline_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.03" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/mf_guideline_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.03" />
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/round_style_for_background_hard"
-        android:backgroundTint="@color/AllWhite"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/mf_guideline_start"
-        app:layout_constraintTop_toTopOf="@+id/mf_guideline_top"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/round_style_for_background_light"
-        android:backgroundTint="@color/Blue"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toStartOf="@+id/mf_guideline_end"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toTopOf="@+id/mf_guideline_top" />
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/round_style_for_background_light"
-        android:backgroundTint="@color/AllWhite"
-        app:layout_constraintBottom_toTopOf="@+id/mf_guideline_bottom"
-        app:layout_constraintEnd_toStartOf="@+id/mf_guideline_end"
-        app:layout_constraintStart_toStartOf="@+id/mf_guideline_start"
-        app:layout_constraintTop_toTopOf="@+id/guideline8" />
-
-
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@id/mf_guideline_end"
-        app:layout_constraintGuide_percent="0.75"
-        app:layout_constraintTop_toTopOf="@id/mf_guideline_start" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.78" />
+        android:background="@color/VLBlue">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/materialToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/LightBlue"
+            app:title="StructF"
+            app:titleMarginStart="0dp"
+            app:navigationIcon="@drawable/round_menu_24"
+            app:navigationIconTint="@color/AllWhite"
+            app:layout_constraintBottom_toTopOf="@id/bottom_of_top_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_of_top_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.09" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/main_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/top_of_bottom_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/materialToolbar"
+
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/struct_nav_graph"
+
+            />
 
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/mf_guideline_end"
+
+
+
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_of_bottom_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.97" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.92" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/mf_guideline_bottom"
-        android:layout_width="match_parent"
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_menu"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/LightBlue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:itemTextColor="@color/AllWhite"
+            app:layout_constraintTop_toBottomOf="@+id/main_host_fragment"
+            app:layout_constraintVertical_bias="0.529"
+            app:itemIconTint="@color/AllWhite"
+            app:menu="@menu/bottom_nav_menu" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.97" />
+        app:itemIconTint="@color/AllWhite"
+        android:backgroundTint="@color/LightBlue"
+        app:itemVerticalPadding="20dp"
+        app:itemHorizontalPadding="30dp"
+        app:itemTextAppearance="@style/BoldText"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_drawer_menu"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true" />
 
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@id/mf_guideline_end"
-        app:layout_constraintEnd_toEndOf="@id/mf_guideline_start"
-        app:layout_constraintGuide_percent="0.74"/>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@id/mf_guideline_end"
-        app:layout_constraintEnd_toEndOf="@id/mf_guideline_start"
-        app:layout_constraintGuide_percent="0.77"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,98 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/VLBlue"
-    tools:context=".ui.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/VLBlue">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/materialToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@color/LightBlue"
-            app:title="StructF"
-            app:titleMarginStart="0dp"
-            app:navigationIcon="@drawable/round_menu_24"
-            app:navigationIconTint="@color/AllWhite"
-            app:layout_constraintBottom_toTopOf="@id/bottom_of_top_bar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/auth_nav_graph" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottom_of_top_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.09" />
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/host_fragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@id/top_of_bottom_bar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/materialToolbar"
-
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/struct_nav_graph"
-
-            />
-
-
-
-
-
-        <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/top_of_bottom_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.92" />
-
-
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_menu"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@color/LightBlue"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:itemTextColor="@color/AllWhite"
-            app:layout_constraintTop_toBottomOf="@+id/host_fragment"
-            app:layout_constraintVertical_bias="0.529"
-            app:itemIconTint="@color/AllWhite"
-            app:menu="@menu/bottom_nav_menu" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navView"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:itemIconTint="@color/AllWhite"
-        android:backgroundTint="@color/LightBlue"
-        app:itemVerticalPadding="20dp"
-        app:itemHorizontalPadding="30dp"
-        app:itemTextAppearance="@style/BoldText"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_drawer_menu"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true" />
-
-
-</androidx.drawerlayout.widget.DrawerLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

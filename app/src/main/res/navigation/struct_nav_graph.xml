@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_folders" />
     <fragment
         android:id="@+id/mainFragment"
-        android:name="ru.mirea.structf.ui.fragments.MainFragment"
+        android:name="ru.mirea.structf.ui.fragments.HomeFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_mainFragment_to_tagFragment"
             app:destination="@id/tagFragment"
