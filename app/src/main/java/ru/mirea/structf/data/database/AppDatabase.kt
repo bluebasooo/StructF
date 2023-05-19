@@ -9,7 +9,7 @@ import ru.mirea.structf.data.model.Tag
 
 @Database(
     entities = [Doc::class, Tag::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase: RoomDatabase() {

@@ -14,7 +14,7 @@ import ru.mirea.structf.databinding.ActivityMainBinding
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val constants = getSharedPreferences("properties", Context.MODE_PRIVATE)
+    //private val constants = getSharedPreferences("properties", Context.MODE_PRIVATE)
 
     private lateinit var mainBinding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle

@@ -1,9 +1,6 @@
 package ru.mirea.structf.ui.fragments
 
 import android.app.AlertDialog
-import android.app.Dialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import ru.mirea.structf.R
@@ -56,52 +51,59 @@ class TagFragment : Fragment() {
                 tagId = 1
             )
         )
-        val tfLayoutManager = LinearLayoutManager(activity)
-        val tfAdapter = FileAdapter(docs)
+        val dLayoutManager = LinearLayoutManager(activity)
+        val dAdapter = FileAdapter(docs)
 
         val tags = tagViewModel.allTags.value ?: listOf()
-
-        val dialog = Dialog(requireActivity().applicationContext)
-
+        val tLayoutManager = LinearLayoutManager(activity)
+        val tAdapter = TagAdapter(tags)
 
 
         tagBinding.rcFile.apply {
-            layoutManager = tfLayoutManager
-            adapter = tfAdapter
+            layoutManager = dLayoutManager
+            adapter = dAdapter
         }
 
-        docViewModel.allDocs.observe(viewLifecycleOwner, Observer {
-            tfAdapter.setDocs(it)
-            tagBinding.rcFile.adapter = tfAdapter
-        })
+        docViewModel.allDocs.observe(viewLifecycleOwner) {
+            dAdapter.setDocs(it)
+            tagBinding.rcFile.adapter = dAdapter
+        }
 
         tagBinding.rcTags.apply {
-            layoutManager = LinearLayoutManager(activity)
-            adapter = TagAdapter(tags)
+            layoutManager = tLayoutManager
+            adapter = tAdapter
+        }
+
+        tagViewModel.allTags.observe(viewLifecycleOwner) {
+            tAdapter.setTags(it)
+            tagBinding.rcTags.adapter = tAdapter
         }
 
         tagBinding.tButton.setOnClickListener {
-            dialog.setContentView(R.layout.create_tag_dialog)
-            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-            val etTagName = dialog.findViewById<EditText>(R.id.setTagName)
-
-            dialog.findViewById<Button>(R.id.create_button).setOnClickListener {
-                val name = etTagName.text.toString()
-                if(!name.isBlank()) {
-                    tagViewModel.insertTag(
-                        Tag(
-                            name = etTagName.text.toString(),
-                            id = 0,
-                            color = "White"
+            activity.let {
+                val builder = AlertDialog.Builder(it)
+                val inflater = requireActivity().layoutInflater
+                val dialog = inflater.inflate(R.layout.create_tag_dialog, null)
+                dialog.findViewById<Button>(R.id.create_button).setOnClickListener {
+                    val name = dialog.findViewById<EditText>(R.id.setTagName).text.toString()
+                    if(name.isNotBlank()) {
+                        tagViewModel.insertTag(
+                            Tag(
+                                name = name,
+                                id = 0,
+                                color = "White"
+                            )
                         )
-                    )
+                    }
                 }
-            }
 
-            dialog.show()
+                builder.setView(dialog)
+                builder.create().show()
+            }
         }
     }
+
+
 
 
 }
