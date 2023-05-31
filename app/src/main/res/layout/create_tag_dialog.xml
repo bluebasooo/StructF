@@ -16,38 +16,138 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <View
-            android:id="@+id/immmmzz"
+            android:id="@+id/tag_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/round_style_for_background_hard"
             android:backgroundTint="@color/LightBlue"
-            app:layout_constraintBottom_toTopOf="@id/setTagName"
+            app:layout_constraintBottom_toTopOf="@id/guideline26"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
             app:layout_constraintWidth_percent="0.5" />
 
-        <EditText
-            android:id="@+id/setTagName"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/set_tag_name"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_style_for_background_hard"
-            android:backgroundTint="@color/Body"
-            android:hint="Enter name tag"
-            android:paddingStart="20dp"
-            android:textColorHint="@color/VLBlue"
-            app:layout_constraintBottom_toTopOf="@+id/create_button"
+            android:gravity="center"
+            android:textColorHint="@color/LightBlue"
+            app:layout_constraintBottom_toTopOf="@+id/guideline28"
             app:layout_constraintDimensionRatio="4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.1"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/immmmzz" />
+            app:layout_constraintTop_toTopOf="@+id/guideline26"
+
+            app:boxStrokeColor="@color/VLBlue"
+            app:boxCornerRadiusBottomStart="20dp"
+            app:boxCornerRadiusBottomEnd="20dp"
+            app:boxCornerRadiusTopEnd="20dp"
+            app:boxCornerRadiusTopStart="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/enter_name_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="Enter name tag"
+                android:textColor="@color/LightBlue"
+                tools:text="Жиесть"
+                >
+
+            </com.google.android.material.textfield.TextInputEditText>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/guideline27"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline28">
+
+            <View
+                android:id="@+id/clrBlue"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_style_for_background_hard"
+                android:backgroundTint="@color/tagBlue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@+id/clrGreen"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.15" />
+
+            <View
+                android:id="@+id/clrGreen"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_style_for_background_hard"
+                android:backgroundTint="@color/tagGreen"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@+id/clrPink"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/clrBlue"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.15" />
+
+            <View
+                android:id="@+id/clrYellow"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_style_for_background_hard"
+                android:backgroundTint="@color/tagYellow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/clrPurple"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.15" />
+
+            <View
+                android:id="@+id/clrPink"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_style_for_background_hard"
+                android:backgroundTint="@color/tagPink"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@+id/clrPurple"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/clrGreen"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.15" />
+
+            <View
+                android:id="@+id/clrPurple"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_style_for_background_hard"
+                android:backgroundTint="@color/tagPurple"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@+id/clrYellow"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/clrPink"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.15" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
-            android:id="@+id/create_button"
+            android:id="@+id/create_tag_button"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/round_style_for_background_hard"
@@ -58,10 +158,31 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/setTagName" />
+            app:layout_constraintTop_toTopOf="@+id/guideline27"
+            app:layout_constraintVertical_bias="0.3"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

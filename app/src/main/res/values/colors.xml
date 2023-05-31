@@ -8,5 +8,15 @@
     <color name="Body">#D9D9D9</color>
     <color name="AllWhite">#FFFFFF</color>
     <color name="LessWhite">#E3E3E3</color>
+    
+    <color name="tagPink">#ff99c8</color>
+    <color name="tagPinked">#ff66ad</color>
+    <color name="tagYellow">#fcf6bd</color>
+    <color name="tagYellowed">#faea5c</color>
+    <color name="tagGreen">#d0f4de</color>
+    <color name="tagGreened">#53db87</color>
+    <color name="tagBlue">#a9def9</color>
+    <color name="tagPurple">#e4c1f9</color>
+    <color name="tagPurpled">#c167f5</color>
 
 </resources>

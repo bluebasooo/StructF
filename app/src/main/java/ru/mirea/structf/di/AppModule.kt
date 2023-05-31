@@ -2,6 +2,7 @@ package ru.mirea.structf.di
 
 import android.content.Context
 import androidx.room.Room
+import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,4 +35,9 @@ object AppModule {
     @Provides
     @Singleton
     fun provideTagRepository(db: AppDatabase) = TagRepositoryImpl(db.getTagDao())
+
+    @Provides
+    @Singleton
+    fun provideFirebaseAuth() = FirebaseAuth.getInstance()
+
  }

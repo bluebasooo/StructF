@@ -40,8 +40,32 @@ class MainFragment : Fragment() {
         mainFragmentBinding.root.addDrawerListener(toggle)
         toggle.syncState()
 
+
+
+
         val navHostFragment = childFragmentManager.findFragmentById(R.id.main_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
+
+        mainFragmentBinding.navView.setNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.bHome -> {
+                    navController.navigate(R.id.mainFragment)
+                    mainFragmentBinding.root.closeDrawers()
+                    true
+                }
+                R.id.bStack -> {
+                    navController.navigate(R.id.tagFragment)
+                    mainFragmentBinding.root.closeDrawers()
+                    true
+                }
+                R.id.bExplorer -> {
+                    navController.navigate(R.id.explorerFragment)
+                    mainFragmentBinding.root.closeDrawers()
+                    true
+                }
+                else -> false
+            }
+        }
 
         mainFragmentBinding.bottomMenu.setupWithNavController(navController)
     }

@@ -6,44 +6,51 @@
     app:startDestination="@id/mainFragment">
 
     <fragment
-        android:id="@+id/foldersFragment"
-        android:name="ru.mirea.structf.ui.fragments.FoldersFragment"
-        android:label="fragment_folders"
-        tools:layout="@layout/fragment_folders" />
-    <fragment
         android:id="@+id/mainFragment"
         android:name="ru.mirea.structf.ui.fragments.HomeFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_mainFragment_to_tagFragment"
-            app:destination="@id/tagFragment"
-            app:enterAnim="@anim/slide_right_from_left"
-            app:exitAnim="@anim/slide_left_from_right"
-            app:popEnterAnim="@anim/slide_right_from_left"
-            app:popExitAnim="@anim/slide_left_from_right"/>
+            app:destination="@id/tagFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_foldersFragment"
-            app:destination="@id/foldersFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_sortFragment"
-            app:destination="@id/sortFragment" />
+            android:id="@+id/action_mainFragment_to_explorerFragment2"
+            app:destination="@id/explorerFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/sortFragment"
-        android:name="ru.mirea.structf.ui.fragments.SortFragment"
-        android:label="fragment_sort"
-        tools:layout="@layout/fragment_sort" />
     <fragment
         android:id="@+id/tagFragment"
         android:name="ru.mirea.structf.ui.fragments.TagFragment"
         android:label="fragment_tag"
         tools:layout="@layout/fragment_tag" >
         <action
-            android:id="@+id/action_tagFragment_to_foldersFragment"
-            app:destination="@id/foldersFragment" />
+            android:id="@+id/action_tagFragment_to_explorerFragment"
+            app:destination="@id/explorerFragment" />
         <action
-            android:id="@+id/action_tagFragment_to_sortFragment"
-            app:destination="@id/sortFragment" />
+            android:id="@+id/action_tagFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hierarchyFragment"
+        android:name="ru.mirea.structf.ui.fragments.HierarchyFragment"
+        android:label="HierarchyFragment"
+        tools:layout="@layout/fragment_hierarchy">
+        <action
+            android:id="@+id/action_hierarchyFragment_to_explorerFragment"
+            app:destination="@id/explorerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/explorerFragment"
+        android:name="ru.mirea.structf.ui.fragments.ExplorerFragment"
+        android:label="ExplorerFragment"
+        tools:layout="@layout/fragment_explorer" >
+        <action
+            android:id="@+id/action_explorerFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_explorerFragment_to_tagFragment"
+            app:destination="@id/tagFragment" />
+        <action
+            android:id="@+id/action_explorerFragment_to_hierarchyFragment"
+            app:destination="@id/hierarchyFragment" />
     </fragment>
 </navigation>

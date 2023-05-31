@@ -6,7 +6,7 @@ import ru.mirea.structf.data.model.Tag
 class TagRepositoryImpl(
     private val tagDao: TagDao
 ) {
-    suspend fun insertTag(tag: Tag) = tagDao.insertTag(tag)
+    suspend fun insertTag(tag: Tag) = tagDao.insertTag(tag.name, tag.endPath, tag.color)
 
     suspend fun deleteTag(tag: Tag) = tagDao.deleteTag(tag)
 

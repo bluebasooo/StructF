@@ -1,17 +1,16 @@
 package ru.mirea.structf.data.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Query
-import androidx.room.Upsert
+import androidx.room.*
 import ru.mirea.structf.data.model.Tag
 
 @Dao
 interface TagDao {
 
-    @Upsert
-    suspend fun insertTag(tag: Tag)
+    @Transaction
+    @Query("INSERT OR IGNORE INTO tag_table (name, end_path, color)" +
+            "VALUES(:name, :endPath, :color)")
+    suspend fun insertTag(name: String, endPath: String, color: String)
 
     @Delete
     suspend fun deleteTag(tag: Tag)

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1097730510453",
+    "project_id": "structf-27bd2",
+    "storage_bucket": "structf-27bd2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097730510453:android:a1c7c842c46cf303f7f23c",
+        "android_client_info": {
+          "package_name": "ru.mirea.structf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097730510453-vod2m8pq1g3bmi6gdtrv2ddjvol97aj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4c4o5peErHrosyocbbsfkFiqAWiyfYFI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097730510453-vod2m8pq1g3bmi6gdtrv2ddjvol97aj7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

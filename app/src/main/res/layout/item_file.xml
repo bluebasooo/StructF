@@ -8,11 +8,11 @@
 
 
     <ImageView
-        android:id="@+id/iconFolder"
+        android:id="@+id/iconFile"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/fold_ic"
-        app:layout_constraintBottom_toTopOf="@+id/tvTitle"
+        app:layout_constraintBottom_toTopOf="@+id/currentRootFolderName"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintHeight_percent="0.75"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,20 +22,21 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/currentRootFolderName"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:text="Title"
+        android:text="@string/very_long_str"
         android:textColor="@color/LightBlue"
-        android:textSize="20sp"
-        android:maxLines="1"
-        android:maxLength="30"
+        android:textSize="12sp"
+        android:maxLines="2"
+        android:gravity="center"
+        android:maxLength="50"
         android:ellipsize="end"
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iconFolder"
+        app:layout_constraintTop_toBottomOf="@+id/iconFile"
         app:layout_constraintVertical_bias="0.5" />
 
     <com.google.android.material.divider.MaterialDivider
@@ -47,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/currentRootFolderName"
         app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

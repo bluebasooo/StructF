@@ -9,4 +9,10 @@
         android:id="@id/tagFragment"
         android:title="Stack"
         android:icon="@drawable/stack_icon" />
+
+    <item
+        android:id="@id/explorerFragment"
+        android:title="Explorer"
+        android:icon="@drawable/explorer_icon"
+        />
 </menu>

@@ -21,29 +21,129 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.03" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recent_docs"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/round_style_for_background_hard"
         android:backgroundTint="@color/AllWhite"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/mf_guideline_start"
         app:layout_constraintTop_toTopOf="@+id/mf_guideline_top"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0">
 
-    <LinearLayout
+        <include
+            android:id="@+id/ic1"
+            layout="@layout/doc_with_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/ic2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ic4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintDimensionRatio="0.7"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <include
+            android:id="@+id/ic2"
+            layout="@layout/doc_with_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/ic3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ic5"
+            app:layout_constraintDimensionRatio="0.7"
+            app:layout_constraintTop_toBottomOf="@+id/ic1"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <include
+            android:id="@+id/ic3"
+            layout="@layout/doc_with_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ic6"
+            app:layout_constraintDimensionRatio="0.7"
+            app:layout_constraintTop_toBottomOf="@+id/ic2"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <include
+            android:id="@+id/ic4"
+            layout="@layout/doc_with_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/ic5"
+            app:layout_constraintEnd_toStartOf="@+id/ic1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintDimensionRatio="0.7"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <include
+            android:id="@+id/ic5"
+            layout="@layout/doc_with_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/ic6"
+            app:layout_constraintEnd_toStartOf="@+id/ic2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintDimensionRatio="0.7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ic4"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <include
+            android:id="@+id/ic6"
+            layout="@layout/doc_with_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ic3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintDimensionRatio="0.7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ic5"
+            app:layout_constraintWidth_percent="0.3" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scale"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/round_style_for_background_light"
         android:backgroundTint="@color/Blue"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/mf_guideline_end"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toTopOf="@+id/mf_guideline_top" />
+        app:layout_constraintTop_toTopOf="@+id/mf_guideline_top"
+        app:layout_constraintVertical_bias="1.0">
 
-    <LinearLayout
+
+        <ProgressBar
+            android:id="@+id/vertical_progressbar"
+            style="@style/Widget.ProgressBar.Vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/popular_tags"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/round_style_for_background_light"
@@ -51,8 +151,49 @@
         app:layout_constraintBottom_toTopOf="@+id/mf_guideline_bottom"
         app:layout_constraintEnd_toStartOf="@+id/mf_guideline_end"
         app:layout_constraintStart_toStartOf="@+id/mf_guideline_start"
-        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+        app:layout_constraintTop_toTopOf="@+id/guideline8">
 
+        <include
+            android:id="@+id/include"
+            layout="@layout/recent_tag"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/include3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintStart_toEndOf="@id/include2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <include
+            android:id="@+id/include2"
+            layout="@layout/recent_tag"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/include"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.25" />
+
+        <include
+            android:id="@+id/include3"
+            layout="@layout/recent_tag"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/include"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.25" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.constraintlayout.widget.Guideline

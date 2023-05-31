@@ -23,5 +23,6 @@
     <string name="enter_username">enter username</string>
     <string name="sign_up">sign up</string>
     <string name="sign_in">Sign In</string>
+    <string name="very_long_str">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</string>
 
 </resources>

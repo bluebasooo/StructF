@@ -1,19 +1,13 @@
 package ru.mirea.structf.ui.fragments
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import ru.mirea.structf.R
-import ru.mirea.structf.data.model.Doc
-import ru.mirea.structf.data.model.Tag
 import ru.mirea.structf.databinding.FragmentTagBinding
 import ru.mirea.structf.ui.adapters.FileAdapter
 import ru.mirea.structf.ui.adapters.TagAdapter
@@ -43,20 +37,15 @@ class TagFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val docs = docViewModel.allDocs.value ?: listOf(
-            Doc(
-                name = "ZZZnocontentZZZ",
-                folderId = 0,
-                isTracked = false,
-                tagId = 1
-            )
-        )
+        docViewModel.getDocsByTag("UNTRACKED")
+
+        val docs = docViewModel.getDocs().value ?: listOf()
         val dLayoutManager = LinearLayoutManager(activity)
         val dAdapter = FileAdapter(docs)
 
         val tags = tagViewModel.allTags.value ?: listOf()
         val tLayoutManager = LinearLayoutManager(activity)
-        val tAdapter = TagAdapter(tags)
+        val tAdapter = TagAdapter(tags, docViewModel)
 
 
         tagBinding.rcFile.apply {
@@ -64,7 +53,7 @@ class TagFragment : Fragment() {
             adapter = dAdapter
         }
 
-        docViewModel.allDocs.observe(viewLifecycleOwner) {
+        docViewModel.getDocs().observe(viewLifecycleOwner) {
             dAdapter.setDocs(it)
             tagBinding.rcFile.adapter = dAdapter
         }
@@ -80,26 +69,6 @@ class TagFragment : Fragment() {
         }
 
         tagBinding.tButton.setOnClickListener {
-            activity.let {
-                val builder = AlertDialog.Builder(it)
-                val inflater = requireActivity().layoutInflater
-                val dialog = inflater.inflate(R.layout.create_tag_dialog, null)
-                dialog.findViewById<Button>(R.id.create_button).setOnClickListener {
-                    val name = dialog.findViewById<EditText>(R.id.setTagName).text.toString()
-                    if(name.isNotBlank()) {
-                        tagViewModel.insertTag(
-                            Tag(
-                                name = name,
-                                id = 0,
-                                color = "White"
-                            )
-                        )
-                    }
-                }
-
-                builder.setView(dialog)
-                builder.create().show()
-            }
         }
     }
 

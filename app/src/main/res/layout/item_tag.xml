@@ -10,8 +10,7 @@
         android:id="@+id/tagBackground"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/round_style_for_background_light"
-        android:backgroundTint="@color/VLBlue"
+        tools:background="@drawable/g_green"
         app:layout_constraintBottom_toTopOf="@id/guideline4"
         app:layout_constraintDimensionRatio="1.5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,18 +21,19 @@
 
         <TextView
             android:id="@+id/tvTag"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:padding="30dp"
-            android:text="Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/very_long_str"
+            android:maxLines="1"
+            android:maxLength="18"
+            android:gravity="center"
+            android:ellipsize="marquee"
             android:textColor="@color/AllWhite"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -47,6 +47,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline4"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintVertical_bias="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
