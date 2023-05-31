@@ -1,18 +1,22 @@
 package ru.mirea.structf.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import ru.mirea.structf.data.model.Doc
 import ru.mirea.structf.databinding.FragmentTagBinding
 import ru.mirea.structf.ui.adapters.FileAdapter
 import ru.mirea.structf.ui.adapters.TagAdapter
 import ru.mirea.structf.ui.viewmodels.DocViewModel
 import ru.mirea.structf.ui.viewmodels.TagViewModel
+import java.io.File
 
 @AndroidEntryPoint
 class TagFragment : Fragment() {
@@ -41,7 +45,9 @@ class TagFragment : Fragment() {
 
         val docs = docViewModel.getDocs().value ?: listOf()
         val dLayoutManager = LinearLayoutManager(activity)
-        val dAdapter = FileAdapter(docs)
+        val dAdapter = FileAdapter(docs) { doc ->
+            viewFile(doc)
+        }
 
         val tags = tagViewModel.allTags.value ?: listOf()
         val tLayoutManager = LinearLayoutManager(activity)
@@ -72,7 +78,25 @@ class TagFragment : Fragment() {
         }
     }
 
+    private fun viewFile(doc: Doc) {
+        val isImage = doc.name.substringAfterLast(".").let {
+            it.startsWith("j") || it.startsWith("png")
+        }
+        val type = if(isImage) "image/*" else "application/*"
 
+        Intent(Intent.ACTION_VIEW).also {
+            it.setDataAndType(
+                FileProvider.getUriForFile(
+                    requireContext().applicationContext,
+                    requireContext().applicationContext.packageName + ".provider",
+                    File(doc.path,doc.name)
+                ),
+                type
+            )
+            it.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            startActivity(it)
+        }
+    }
 
 
 }

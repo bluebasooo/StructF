@@ -30,11 +30,23 @@ class MainViewModel @Inject constructor(
             repository2.insertTag(
                 Tag(name = "UNTRACKED", endPath = Environment.getExternalStoragePublicDirectory("Downloads").absolutePath, color = "Green")
             )
+            setUpCloud()
             File(Environment.getExternalStorageDirectory(),"Download")
                 .walkTopDown()
                 .filter { it.isDirectory }
                 .forEach { saveBunch(it) }
         }
+    }
+
+    suspend fun setUpCloud() {
+        File(Environment.getExternalStorageDirectory().toString(), "Cloud").also {
+            if(!it.exists()) {
+                it.mkdir()
+            }
+        }
+        repository2.insertTag(
+            Tag(name = "CLOUD", endPath = "${Environment.getExternalStorageState().toString()}/Cloud", color = "Pink")
+        )
     }
 
     private fun saveBunch(dir: File) {

@@ -1,6 +1,8 @@
 package ru.mirea.structf.ui.viewmodels
 
+import android.net.Uri
 import android.os.Environment
+import androidx.core.content.FileProvider
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,14 +11,17 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import ru.mirea.structf.data.model.Doc
+import ru.mirea.structf.data.repository.CloudRepositoryImpl
 import ru.mirea.structf.data.repository.DocRepositoryImpl
 import ru.mirea.structf.domain.Explorer
+import java.io.File
 import java.text.FieldPosition
 import javax.inject.Inject
 
 @HiltViewModel
 class DocViewModel @Inject constructor(
-    private val repository: DocRepositoryImpl
+    private val repository: DocRepositoryImpl,
+    private val cloudRepository: CloudRepositoryImpl
 ): ViewModel() {
 
     private val docs = MutableLiveData<List<Doc>>()
@@ -34,6 +39,17 @@ class DocViewModel @Inject constructor(
     fun getDocsByTag(tagName: String) {
         viewModelScope.launch(Dispatchers.IO) {
             docs.postValue(repository.getDocByTag(tagName))
+        }
+    }
+
+    fun cloudUpload(doc: Doc) {
+        viewModelScope.launch(Dispatchers.IO) {
+            cloudRepository.upload(
+                doc.name,
+                Uri.fromFile(File(doc.path, doc.name))
+            ).addOnSuccessListener {
+                insertDoc(doc)
+            }
         }
     }
 
@@ -59,6 +75,8 @@ class DocViewModel @Inject constructor(
             repository.updatePathAndTagForDoc(docId, tagId, target)
         }
     }
+
+
 
     fun updatePathForDoc(docId: Long, endPath: String) {
         viewModelScope.launch(Dispatchers.IO) {

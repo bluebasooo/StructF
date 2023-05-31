@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/VLBlue"
-    tools:context=".ui.fragments.TagFragment">
+    tools:context=".ui.fragments.TagFragment"
+    android:id="@+id/tag_fragment_view"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/tags"

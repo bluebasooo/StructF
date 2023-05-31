@@ -6,11 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import ru.mirea.structf.R
+import ru.mirea.structf.data.model.Doc
 import ru.mirea.structf.data.model.Tag
 import ru.mirea.structf.ui.viewmodels.DocViewModel
 
@@ -30,13 +29,11 @@ class TagAdapter(
         holder.itemView.apply {
             findViewById<TextView>(R.id.tvTag).text = tags[position].name
             val img = findViewById<ConstraintLayout>(R.id.tagBackground)
-            when(tags[position].color) {
-                "Blue" -> img.setBackgroundResource(R.drawable.g_blue)
-                "Yellow" -> img.setBackgroundResource(R.drawable.g_yellow)
-                "Green" -> img.setBackgroundResource(R.drawable.g_green)
-                "Pink" -> img.setBackgroundResource(R.drawable.g_pink)
-                "Purple" -> img.setBackgroundResource(R.drawable.g_purple)
-            }
+
+            img.setBackgroundResource(chooseTagsColor(
+                tags[position].color
+            ))
+
             setOnClickListener {
                 model.getDocsByTag(tags[position].name)
             }
@@ -60,7 +57,14 @@ class TagAdapter(
                         val data = dragData.split("^")
                         val docId = data[0].toLong()
                         val tagId = data[3].toLong()
-                        model.moveDoc(docId,tags[position].tagId ,data[1], tags[position].endPath, data[2] )
+                        if(tags[position].name == "CLOUD") {
+                            model.cloudUpload(
+                                Doc(path = data[1], name = data[2], tagId = 2)
+                            )
+                        } else {
+                            model.moveDoc(docId,tags[position].tagId ,data[1], tags[position].endPath, data[2] )
+                        }
+
                         model.getDocsByTagId(tagId)
                         view.invalidate()
 
@@ -77,6 +81,17 @@ class TagAdapter(
                     else -> false
                 }
             }
+        }
+    }
+
+    fun chooseTagsColor(color: String): Int {
+        return when(color) {
+            "Blue" -> R.drawable.g_blue
+            "Yellow" -> R.drawable.g_yellow
+            "Green" -> R.drawable.g_green
+            "Pink" -> R.drawable.g_pink
+            "Purple" -> R.drawable.g_purple
+            else -> 0
         }
     }
 

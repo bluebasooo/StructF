@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -39,7 +41,6 @@ class MainFragment : Fragment() {
         toggle = ActionBarDrawerToggle(activity, mainFragmentBinding.root, R.string.open, R.string.close)
         mainFragmentBinding.root.addDrawerListener(toggle)
         toggle.syncState()
-
 
 
 
@@ -76,6 +77,7 @@ class MainFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 
 
 }

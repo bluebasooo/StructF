@@ -10,7 +10,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,6 +23,7 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import ru.mirea.structf.R
 import ru.mirea.structf.databinding.FragmentAuthBinding
+import ru.mirea.structf.ui.fragments.MainFragment
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -82,7 +85,8 @@ class AuthFragment: Fragment() {
         if(auth.currentUser == null) {
             Toast.makeText(context, "LogIn failed", Toast.LENGTH_SHORT).show()
         } else {
-            navController.navigate(R.id.mainFragment2)
+            //navController.navigate(R.id.action_authFragment_to_mainFragment2, null, NavOptions.Builder().setPopUpTo(R.id.mainFragment2, true).build())
+            navController.navigate(R.id.action_authFragment_to_mainFragment2)
         }
     }
 }

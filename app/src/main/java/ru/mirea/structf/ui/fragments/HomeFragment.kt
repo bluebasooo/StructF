@@ -95,6 +95,11 @@ class HomeFragment : Fragment() {
                     )
                 view.findViewById<TextView>(R.id.recent_text).text = docs[index].name
                 view.setOnClickListener {
+                    val isImage = docs[index].name.substringAfterLast(".").let {
+                        it.startsWith("j") || it.startsWith("png")
+                    }
+                    val type = if(isImage) "image/*" else "application/*"
+
                     Intent(Intent.ACTION_VIEW).also {
                         it.setDataAndType(
                             FileProvider.getUriForFile(
@@ -102,7 +107,7 @@ class HomeFragment : Fragment() {
                                 context.applicationContext.packageName + ".provider",
                                 File(docs[index].path,docs[index].name)
                             ),
-                            "application/*"
+                            type
                         )
                         it.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                         startActivity(it)
@@ -115,7 +120,15 @@ class HomeFragment : Fragment() {
     fun chooseIcon(typeDoc: String): Int {
         return when(typeDoc) {
                 "pdf" -> R.drawable.pdf_ic
-                "docx" -> R.drawable.fold_ic
+                "docx" -> R.drawable.doc_ic
+                "doc" -> R.drawable.doc_ic
+                "png" -> R.drawable.pic_ic
+                "jpg" -> R.drawable.pic_ic
+                "jpeg" -> R.drawable.pic_ic
+                "xls" -> R.drawable.xls_ic
+                "xlsx" -> R.drawable.xls_ic
+                "rar" -> R.drawable.rar_ic
+                "zip" -> R.drawable.rar_ic
                 else -> 0
         }
     }
