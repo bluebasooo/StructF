@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import ru.mirea.structf.data.model.Doc
 import ru.mirea.structf.data.model.Tag
-import ru.mirea.structf.data.model.TagsWithDocs
 
 @Dao
 interface DocDao {
@@ -34,10 +33,6 @@ interface DocDao {
 
     @Query("SELECT tag_id, end_path, name, color FROM (SELECT t.name, t.color, t.tag_id, t.end_path, COUNT(d.name) as num_of_docs FROM doc_table d INNER JOIN tag_table t USING(tag_id) GROUP BY t.name ORDER BY num_of_docs DESC) LIMIT 3")
     fun getMostPopularTags(): LiveData<List<Tag>>
-
-    @Transaction
-    @Query("SELECT * FROM tag_table WHERE name =:name")
-    suspend fun getTagWithDocs(name: String): List<TagsWithDocs>
 
     @Transaction
     @Query("SELECT d.doc_id, d.name, d.path, d.tag_id " +
